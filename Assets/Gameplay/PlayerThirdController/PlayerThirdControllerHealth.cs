@@ -17,8 +17,9 @@ public class PlayerThirdControllerHealth : MonoBehaviour
     [SerializeField] AudioSource _playerAudioSource = null;
     [SerializeField] AudioClip _deathAudioClip = null;
 
-    private float _startingHealth = 100.0f;
-    private float _currentHealth = 0.0f;
+    private int _startingHealth = 100;
+    private int _currentHealth = 0;
+    
     private float _flashSpeed = 5.0f;
 
     private bool _isDead = false;

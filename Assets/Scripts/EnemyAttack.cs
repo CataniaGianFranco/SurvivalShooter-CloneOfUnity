@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [Header ("Player Third Controller")]
+    [Header("Enemy")]
+    [SerializeField] private EnemyHealth _enemyHealth = null;
+
+    [Header("Player Third Controller")]
     [SerializeField] private GameObject _playerThirdController = null;
     [SerializeField] private PlayerThirdControllerHealth _playerHealth = null;
 
+    [Header("Animation")]
     [SerializeField] private Animator _enemyAnimator = null;
     
+
     private bool _playerInRange = false;
 
     private int _attackDamage = 10;
@@ -24,7 +29,7 @@ public class EnemyAttack : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (_playerInRange && _timer >= _timeBetweenAttacks)
+        if (_playerInRange && _enemyHealth.CurrentHealth > 0f && _timer >= _timeBetweenAttacks)
             Attack();
         
         if (_playerHealth.CurrentHealth <= 0.0f)

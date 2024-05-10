@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [Header("Enemy")]
-    [SerializeField] private EnemyHealth _enemyHealth;
+    [SerializeField] private EnemyHealth _enemyHealth = null;
 
     [Header("Player Third Controller")]
     [SerializeField] private GameObject _playerThirdController = null;

@@ -29,30 +29,30 @@ public class PlayerShooting : MonoBehaviour
         _timer += Time.deltaTime;
 
         MapController();
+        DisableEffects();
     }
 
     private void MapController()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && _timer >= _timeBetWeenBullets && Time.timeScale != 0.0f)
             Shoot();
     }
 
     private void Shoot()
     {
-        if (Time.timeScale != 0.0f && _timer >= _timeBetWeenBullets)
-        {
+
             _timer = 0.0f;
             _gunAudio.Play();
             _gunLight.enabled = true;
             _gunLine.enabled = true;
             _gunLine.SetPosition(0, this.transform.position);
-        }
-        DisableEffects();
+
+        
     }
 
     private void DisableEffects()
     {
-        if (_timer >= (_timeBetWeenBullets * _effectsDisplayTime))
+        if (_timer >= _timeBetWeenBullets * _effectsDisplayTime)
         {
             _gunLine.enabled = false;
             _gunLight.enabled = false;
